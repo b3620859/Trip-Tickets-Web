@@ -54,6 +54,7 @@ class Database:
 # Id , Location, Title, Rate, Market_price, Sell_price, Link, Timestamp
 
 """
+Test_Table
 +--------------+------------------+------+-----+---------+----------------+
 | Field        | Type             | Null | Key | Default | Extra          |
 +--------------+------------------+------+-----+---------+----------------+
