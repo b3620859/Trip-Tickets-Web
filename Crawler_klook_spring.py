@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+from sqldatabase import Database
+import datetime
 
 class Spring_item:
     def __init__(self):
@@ -57,11 +59,34 @@ class Klook:
             spring_item.title = i['title']
             spring_item.rate = i['review_star']
             spring_item.sell_price = i['sell_price']['amount_display']
-            # spring_item.market_price = i['market_price']['amount_display'] #該欄位不一定有值
+            try:
+                spring_item.market_price = i['market_price']['amount_display'] #該欄位不一定有值
+            except:
+                print(f'{spring_item.id} :　無市價')
             spring_item.link = self.url_base + i['deep_link']
             spring_list.append(spring_item)
 
+        self.save2db(spring_list)
+
         return spring_list
+
+    def save2db(self,item_list):
+        datas = list()
+        for i in item_list:
+            data = list()
+            data.append(i.id)
+            data.append(i.location)
+            data.append(i.title)
+            data.append(i.rate)
+            data.append(i.market_price)
+            data.append(i.sell_price)
+            data.append(i.link)
+            data.append(int(datetime.datetime.now().timestamp()))
+            datas.append(data)
+
+        db = Database()
+        db.SaveData2MySQL(datas)
+
 
     def login(self):
         '''
@@ -104,7 +129,7 @@ class Klook:
 
 
 test = Klook()
-test.login()
+# test.login()
 test.getItemlist(23)
-test.addWishList(50339)
-test.cancelWishList(50339)
+# test.addWishList(50339)
+# test.cancelWishList(50339)
