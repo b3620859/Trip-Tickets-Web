@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    {% for data in datas %}
+    <ul id="data.name">
+        <li>
+            <span class="field-name">Id:</span>
+            <span class="field-value">{{ data.id }}</span>
+        </li>
+        <li>
+            <span class="field-name">Name:</span>
+            <span class="field-value">{{ data.name }}</span>
+        </li>
+        <li>
+            <span class="field-name">Date:</span>
+            <span class="field-value">{{ data.date }}</span>
+        </li>
+        <li>
+            <span class="field-name">Time:</span>
+            <span class="field-value">{{ data.time }}</span>
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock content%}
