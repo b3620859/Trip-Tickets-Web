@@ -37,24 +37,41 @@ db = SQLAlchemy(app)
 db.init_app(app)
 
 class CrawlerData(db.Model):
-    __tablename__ = 'Test_Table1'
-    id = db.Column('ID', db.Integer, primary_key=True, autoincrement=True)
-    date = db.Column('Date', db.String(255), unique=False, nullable=False)
-    name = db.Column('Name', db.String(255), unique=False, nullable=False)
-    time = db.Column('Time', db.String(255), unique=False, nullable=False)
+
+    __tablename__ = 'Test_Table'
+    # id = db.Column('ID', db.Integer, primary_key=True, autoincrement=True)
+    # date = db.Column('Date', db.String(255), unique=False, nullable=False)
+    # name = db.Column('Name', db.String(255), unique=False, nullable=False)
+    # time = db.Column('Time', db.String(255), unique=False, nullable=False)
+
+    num = db.Column('Num', db.Integer, primary_key=True, autoincrement=True)
+    id = db.Column('Id', db.Integer, unique=False, nullable=False)
+    location = db.Column('Location', db.String(255), unique=False, nullable=False)
+    title = db.Column('Title', db.String(255), unique=False, nullable=False)
+    rate = db.Column('Rate', db.String(255), unique=False, nullable=False)
+    market_price = db.Column('Market_price', db.Integer, unique=False, nullable=False)
+    sell_price = db.Column('Sell_price', db.Integer, unique=False, nullable=False)
+    link = db.Column('Link', db.String(255), unique=False, nullable=False)
+    timestamp = db.Column('Timestamp', db.Integer, unique=False, nullable=False)
 
     def create(self):
         db.session.add(self)
         db.session.commit()
         return self
 
-    def __init__(self, date, name, time):
-        self.date = date
-        self.name = name
-        self.time = time
+    def __init__(self, num, id, location, title, rate, market_price, sell_price, link, timestamp):
+        self.num = num
+        self.id = id
+        self.location = location
+        self.title = title
+        self.rate = rate
+        self.market_price = market_price
+        self.sell_price = sell_price
+        self.link = link
+        self.link = timestamp
 
     def __repr__(self):
-        return f'Date: {self.date} Name: {self.name} Time: {self.time}'
+        return f'Num: {self.num} Id: {self.id} Location: {self.location} Title: {self.title} Rate: {self.rate} Market_price: {self.market_price} Sell_price: {self.sell_price} Link: {self.link} imestamp: {self.timestamp}'
 
 # Models
 @app.route('/home')
@@ -115,6 +132,22 @@ mysql> select * from Test_Table1;
 |  6 | 2022/01/18 | 2317 | 14:30 |
 +----+------------+------+-------+
 6 rows in set (0.00 sec)
+
+mysql> select * from Test_Table;
++--------------+------------------+------+-----+---------+----------------+
+| Field        | Type             | Null | Key | Default | Extra          |
++--------------+------------------+------+-----+---------+----------------+
+| Num          | int(11) unsigned | NO   | PRI | NULL    | auto_increment |
+| Id           | int(11) unsigned | NO   |     | NULL    |                |
+| Location     | varchar(255)     | YES  |     | NULL    |                |
+| Title        | varchar(255)     | YES  |     | NULL    |                |
+| Rate         | varchar(255)     | YES  |     | NULL    |                |
+| Market_price | int(11)          | YES  |     | NULL    |                |
+| Sell_price   | int(11)          | YES  |     | NULL    |                |
+| Link         | varchar(255)     | YES  |     | NULL    |                |
+| Timestamp    | int(11)          | YES  |     | NULL    |                |
++--------------+------------------+------+-----+---------+----------------+
+9 rows in set (0.01 sec)
 """
 
 

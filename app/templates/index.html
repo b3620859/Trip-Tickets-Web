@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    {% for data in datas %}
+    <ul id="data.name">
+        <li>
+            <span class="field-name">Num:</span>
+            <span class="field-value">{{ data.num }}</span>
+        </li>
+        <li>
+            <span class="field-name">Id:</span>
+            <span class="field-value">{{ data.id }}</span>
+        </li>
+        <li>
+            <span class="field-name">Location:</span>
+            <span class="field-value">{{ data.location }}</span>
+        </li>
+        <li>
+            <span class="field-name">Title:</span>
+            <span class="field-value">{{ data.title }}</span>
+        </li>
+        <li>
+            <span class="field-name">Rate:</span>
+            <span class="field-value">{{ data.rate }}</span>
+        </li>
+        <li>
+            <span class="field-name">Market price:</span>
+            <span class="field-value">{{ data.market_price }}</span>
+        </li>
+        <li>
+            <span class="field-name">Sell price:</span>
+            <span class="field-value">{{ data.sell_price }}</span>
+        </li>
+        <li>
+            <span class="field-name">Timestamp:</span>
+            <span class="field-value">{{ data.timestamp }}</span>
+        </li>
+        <li>
+            <span class="field-name">Link:</span>
+            <a href={{ data.link }} target="_blank">Klook連結</a>
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock content%}

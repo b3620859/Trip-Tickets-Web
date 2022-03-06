@@ -32,13 +32,13 @@ class Database:
 
 
                 # Add data SQL syntax
-                sql_commad = "INSERT INTO Test_Table (Id , Location, Title, Rate, Market_price, Sell_price, Link, Timestamp) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);"
+                sql_command = "INSERT INTO Test_Table (Id , Location, Title, Rate, Market_price, Sell_price, Link, Timestamp) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);"
                 # Create table
                 # cursor.execute("CREATE TABLE Test_Table (Id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, Date VARCHAR(255), Name VARCHAR(255), Time VARCHAR(255)) DEFAULT CHARSET=utf8")
-                cursor.execute("CREATE TABLE Test_Table (Num INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, Id INT(11) UNSIGNED NOT NULL, Location VARCHAR(255), Title VARCHAR(255), Rate VARCHAR(255), Market_price INT(11), Sell_price INT(11), Link VARCHAR(255), Timestamp INT(11)) DEFAULT CHARSET=utf8")
+                cursor.execute("CREATE TABLE IF NOT EXISTS Test_Table (Num INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, Id INT(11) UNSIGNED NOT NULL, Location VARCHAR(255), Title VARCHAR(255), Rate VARCHAR(255), Market_price INT(11), Sell_price INT(11), Link VARCHAR(255), Timestamp INT(11)) DEFAULT CHARSET=utf8")
                 # Write data to the database
                 for input_data in datas:
-                    cursor.execute(sql_commad, input_data)  # values has placeholders
+                    cursor.execute(sql_command, input_data)  # values has placeholders
                 connect.commit()  # SQL statement used for saving the changes
 
         except Error as e:
@@ -71,6 +71,8 @@ Test_Table
 9 rows in set (0.01 sec)
 """
 
+
+"""
 def main():
     db = Database()
     db.SaveData2MySQL()
@@ -78,3 +80,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+"""
