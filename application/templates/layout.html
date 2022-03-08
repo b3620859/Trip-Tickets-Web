@@ -44,8 +44,17 @@
           </header>
           <main role="main" class="container">
             <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-11">
                 <h1>Show Trip Tickets DataBase</h1>
+                  <nav>
+                      <ul class="flex-nav">
+                        <li><a href="#">  北部地區  </a></li>
+                        <li><a href="#">  中部地區  </a></li>
+                        <li><a href="#">  東部地區  </a></li>
+                        <li><a href="#">  離島地區  </a></li>
+                        <li><a href="#">  國外地區  </a></li>
+                      </ul>
+                    </nav>
                 <h2>{{ count }} records in total</h2>
                 {% block content %}{% endblock content %}
               </div>

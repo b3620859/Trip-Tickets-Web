@@ -11,6 +11,8 @@ h4,
 h5,
 h6 {
   color: #444444;
+  margin: 0;
+  padding: 34px 0 14px 40px;
 }
 
 .bg-steel {
@@ -31,7 +33,7 @@ h6 {
 
 .content-section {
   background: #ffffff;
-  padding: 10px 20px;
+  padding: 10px 30px;
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
@@ -82,4 +84,26 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+nav > ul {
+  background-color: rgb(230, 230, 230);
+  list-style: none; /* 移除項目符號 */
+  margin: 0;
+  padding: 0;
+}
+nav a {
+  color: inherit; /* 移除超連結顏色 */
+  font-size: 1.25rem;
+  padding: 2px;
+  text-decoration: none; /* 移除超連結底線 */
+}
+/* 滑鼠移到 <a> 時變成深底淺色 */
+nav li:hover {
+  background-color: rgb(115, 115, 115);
+  color: white;
+}
+.flex-nav {
+  display: flex;
+  justify-content: space-around;
 }
