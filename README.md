@@ -12,3 +12,4 @@ $ docker run --name=local-mysql5.7 -v c:/db-data:/var/lib/mysql -v c:/db-data/my
 ```shell
 $ docker exec -it local-mysql5.7 mysql -uroot -p
 ```
+<img width="1397" alt="Project_display" src="https://user-images.githubusercontent.com/34037335/157201618-871b992c-5e14-4d29-83f2-a6f5f1ac5bc2.PNG">
