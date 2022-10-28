@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>票券名稱</th>
+                <th>地區</th>
+                <th>評價</th>
+                <th>優惠價(NT)</th>
+                <th>原價(NT)</th>
+                <th>使用日期</th>
+                <th>連結</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for data in datas %}
+        <tr id="data.name">
+            <td>
+                <!-- <span class="field-name">票券名稱</span> -->
+                <span class="field-value">{{ data.title }}</span>
+            </td>
+            <td>
+                <!-- <span class="field-name">地區</span> -->
+                <span class="field-value">{{ data.location }}</span>
+            </td>
+            <td>
+                <!-- <span class="field-name">評價:</span> -->
+                <span class="field-value">{{ data.rate }}</span>
+            </td>
+            <td>
+                <!-- <span class="field-name">優惠價格:</span> -->
+                <span class="field-value">{{ data.sell_price }}</span>
+            </td>
+            <td>
+                <!-- <span class="field-name">市場價格:</span> -->
+                <span class="field-value">{{ data.market_price }}</span>
+            </td>
+            <td>
+                <!-- <span class="field-name">Timestamp:</span> -->
+                <span class="field-value">{{ data.timestamp }}</span>
+            </td>
+            <td>
+                <!-- <span class="field-name">網站連結:</span> -->
+                <a href={{ data.link }} target="_blank">Klook連結</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+{% endblock content%}

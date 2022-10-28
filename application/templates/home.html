@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for data in datas %}
+        <h3>{{ data.id }}</h3>
+        <p>{{ data.name }}</p>
+        <p>{{ data.date }}</p>
+        <p>{{ data.time }}</p>
+    {% endfor %}
+{% endblock content %}
+
